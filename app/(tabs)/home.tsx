@@ -1,7 +1,11 @@
+import { Footer } from '@/components/Footer';
 import { View, Text, StyleSheet } from 'react-native';
 export function HomeScreen() {
     return (
-      <View style={styles.screen}><Text>Home Screen</Text></View>
+      <View style={styles.screen}>
+        <Text>Home Screen</Text>
+        <Footer/>
+      </View>
     );
   }
 
