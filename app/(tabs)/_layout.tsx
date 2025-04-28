@@ -1,45 +1,96 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {  StyleSheet, View,  } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { HomeScreen } from './home';
+import { AktualnosciScreen } from './aktualnosci';
+import { EbiletScreen } from './e-bilet';
+import { ProfileScreen } from './profile';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const Tab = createBottomTabNavigator();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function Screen() {
+  const showDot = true; // you can control this dynamically (ex: unread notifications)
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
+    <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
             position: 'absolute',
+            bottom: 16,
+            left: 16,
+            right: 16,
+            elevation: 5,
+            backgroundColor: 'white',
+            borderRadius: 20,
+            height: 70,
+            paddingBottom: 10,
           },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarLabelStyle: {
+            fontSize: 12,
+          },
+          tabBarActiveTintColor: '#000',
+          tabBarInactiveTintColor: '#888',
         }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+      >
+        <Tab.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="home-outline" color={color} size={24} />
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name="Aktualności" 
+          component={AktualnosciScreen} 
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <View>
+                <Icon name="file-document-outline" color={color} size={24} />
+                {showDot && (
+                  <View style={styles.notificationDot} />
+                )}
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name="E-bilet" 
+          component={EbiletScreen} 
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="ticket-outline" color={color} size={24} />
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name="Profil" 
+          component={ProfileScreen} 
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="account-outline" color={color} size={24} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+  },
+  notificationDot: {
+    position: 'absolute',
+    top: -2,
+    right: -6,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'red',
+  },
+});
