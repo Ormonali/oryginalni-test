@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {  StyleSheet, View,  } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { HomeScreen } from './home';
-import { AktualnosciScreen } from './aktualnosci';
-import { EbiletScreen } from './e-bilet';
-import { ProfileScreen } from './profile';
+import HomeScreen from './home';
+import AktualnosciScreen from './aktualnosci';
+import EbiletScreen from './e-bilet';
+import ProfileScreen from './profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,18 +34,20 @@ export default function Screen() {
         }}
       >
         <Tab.Screen 
-          name="Home" 
+          name="home" 
           component={HomeScreen} 
           options={{
+            title: "Home",
             tabBarIcon: ({ color, size }) => (
               <Icon name="home-outline" color={color} size={24} />
             ),
           }}
         />
         <Tab.Screen 
-          name="Aktualności" 
+          name="aktualnosci" 
           component={AktualnosciScreen} 
           options={{
+            title: "Aktualności",
             tabBarIcon: ({ color, size }) => (
               <View>
                 <Icon name="file-document-outline" color={color} size={24} />
@@ -57,18 +59,20 @@ export default function Screen() {
           }}
         />
         <Tab.Screen 
-          name="E-bilet" 
+          name="e-bilet" 
           component={EbiletScreen} 
           options={{
+            title: "E-bilet",
             tabBarIcon: ({ color, size }) => (
               <Icon name="ticket-outline" color={color} size={24} />
             ),
           }}
         />
         <Tab.Screen 
-          name="Profil" 
+          name="profile" 
           component={ProfileScreen} 
           options={{
+            title: "Profil",
             tabBarIcon: ({ color, size }) => (
               <Icon name="account-outline" color={color} size={24} />
             ),

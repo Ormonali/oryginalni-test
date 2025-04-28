@@ -1,6 +1,6 @@
 import { Footer } from '@/components/Footer';
 import { View, Text, StyleSheet } from 'react-native';
-export function HomeScreen() {
+export default function HomeScreen() {
     return (
       <View style={styles.screen}>
         <Text>Home Screen</Text>
