@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-export function EbiletScreen() {
+export default function EbiletScreen() {
     return (
       <View style={styles.screen}><Text>E-bilet Screen</Text></View>
     );

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-export function AktualnosciScreen() {
+export default function AktualnosciScreen() {
     return (
       <View style={styles.screen}><Text>Newsssss Screen</Text></View>
     );
