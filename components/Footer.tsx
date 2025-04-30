@@ -9,7 +9,7 @@ export function Footer() {
   const theme = useColorScheme() ?? 'light';
 
   return (
-    <ThemedView style={{backgroundColor: 'transparent', marginTop: 50, marginBottom: 20 }}>
+    <ThemedView style={{backgroundColor: 'transparent', marginTop: 50, marginBottom: 100 }}>
         <Stack spacing={20} justifyContent="center">
             <Image style={styles.image} source={require('@/assets/images/react-logo.png')}/>
             <Stack direction="row" spacing={20}>
