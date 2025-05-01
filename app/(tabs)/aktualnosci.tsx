@@ -82,7 +82,7 @@ export default function AktualnosciScreen() {
                   {
                     opacity:
                       section.title === "Wcześniejsze powiadomienia" ? 0.4 : 1,
-                  }, // 👈 inline logic here
+                  },
                 ]}
               >
                 <View style={styles.row}>
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     marginLeft: "auto",
     marginRight: "auto",
-    paddingTop: 100,
+    paddingTop: 90,
   },
   footer: {
     marginTop: 40,
