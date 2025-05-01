@@ -17,7 +17,7 @@ export default function Screen() {
           headerShown: false,
           tabBarStyle: {
             position: 'absolute',
-            bottom: 16,
+            bottom: 30,
             left: 16,
             right: 16,
             elevation: 5,
