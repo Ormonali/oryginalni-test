@@ -51,15 +51,23 @@ export default function HomeScreen() {
 
         {/* Important Event Topics */}
         <Text style={styles.header}>Ważne sprawy dotyczące wydarzenia:</Text>
-        <View style={styles.card}>
-          <Text style={styles.item}>• Informacje targowe</Text>
-          <Text style={styles.item}>• Portal</Text>
-          <Text style={styles.item}>• Materiały</Text>
+        <View style={styles.cardGlass}>
+          <Image
+            source={require('@/assets/images/logo.webp')} // Adjust the path based on your setup
+            style={styles.cardImage}
+          />
+          <Text style={styles.itemText}>Informacje <br />targowe</Text>
+          
         </View>
+        <View style={styles.cardGlass}>
+          <Text style={styles.itemText}>Portal</Text>
+        </View>
+        <View style={styles.cardGlass}>
+          <Text style={styles.itemText}>Materiały</Text>
+        </View>
+        <Footer />
       </ScrollView>
-
       {/* Fixed Footer */}
-      <Footer />
     </View>
   );
 }
@@ -102,7 +110,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 20,
     marginBottom: 16,
     shadowColor: '#000',
     shadowOpacity: 0.05,
@@ -177,8 +185,29 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
   },
-  item: {
-    fontSize: 14,
-    marginTop: 4,
+  cardGlass: {
+    borderColor: '#fff',
+    borderRadius: 20,
+    borderWidth: 1.5,
+    backgroundColor: '#F6F7F8',
+    padding: 24,
+    marginTop: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  cardImage: {
+    width: 50,
+    height: 50,
+    marginRight: 30,
+  },
+  itemText: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: "#6F6F6F"
   },
 });
