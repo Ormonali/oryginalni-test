@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { Footer } from '@/components/Footer';
 import ProgressBar from '@/components/ProgressBar';
 import { Subheader } from 'react-native-paper/lib/typescript/components/List/List';
+import IconButton from '@/components/IconButton';
+import RightBtnIcon from '@/components/icons/RightBtn';
+import BellIcon from '@/components/icons/Bell';
+import Spacer from '@/components/Spacer';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -50,24 +54,42 @@ export default function HomeScreen() {
         </View>
 
         {/* Important Event Topics */}
+        <Spacer height={20}/>
         <Text style={styles.header}>Ważne sprawy dotyczące wydarzenia:</Text>
         <View style={styles.cardGlass}>
           <Image
-            source={require('@/assets/images/logo.webp')} // Adjust the path based on your setup
+            source={require('@/assets/images/bell.svg')}
             style={styles.cardImage}
           />
           <Text style={styles.itemText}>Informacje <br />targowe</Text>
-          
+          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
         </View>
         <View style={styles.cardGlass}>
-          <Text style={styles.itemText}>Portal</Text>
+          <Image
+            source={require('@/assets/images/bell.svg')}
+            style={styles.cardImage}
+          />
+          <Text style={styles.itemText}>Portal <br />dokumentów</Text>
+          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
         </View>
         <View style={styles.cardGlass}>
-          <Text style={styles.itemText}>Materiały</Text>
+          <Image
+            source={require('@/assets/images/bell.svg')}
+            style={styles.cardImage}
+          />
+          <Text style={styles.itemText}>Materialy <br />marketingowe</Text>
+          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
+        </View>
+        <View style={styles.cardGlass}>
+          <Image
+            source={require('@/assets/images/bell.svg')}
+            style={styles.cardImage}
+          />
+          <Text style={styles.itemText}>Generator <br />zaproszen</Text>
+          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
         </View>
         <Footer />
       </ScrollView>
-      {/* Fixed Footer */}
     </View>
   );
 }
@@ -176,6 +198,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 8,
+    marginBottom: 12,
     backgroundColor: '#2E2E38',
     padding: 12,
     borderRadius: 8,
@@ -190,7 +213,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1.5,
     backgroundColor: '#F6F7F8',
-    padding: 24,
+    padding: 18,
     marginTop: 16,
     shadowColor: '#000',
     shadowOpacity: 0.05,
@@ -206,8 +229,9 @@ const styles = StyleSheet.create({
     marginRight: 30,
   },
   itemText: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: "#6F6F6F"
+    fontSize: 16,
+    fontWeight: '400',
+    color: "#6F6F6F",
+    marginRight: 'auto'
   },
 });
