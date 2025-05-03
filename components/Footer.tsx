@@ -10,7 +10,7 @@ type FooterProps = {
 
 export function Footer({ colorMode = 'light' }: FooterProps) {
   const isDark = colorMode === 'dark';
-  const textColor = { color: isDark ? Colors.dark.white : Colors.dark.grey,  };
+  const textColor = { color: isDark ? Colors.white : Colors.grey,  };
 
   const logoSource = require('@/assets/images/logo-dark.png');
 

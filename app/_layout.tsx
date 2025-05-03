@@ -8,6 +8,7 @@ import 'react-native-reanimated';
 import { PaperProvider } from 'react-native-paper';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import PortalScreen from './portal-dokumentow';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -34,6 +35,7 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
+          <Stack.Screen name="portal-dokumentow" options={{ headerShown: false,  }} />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>
