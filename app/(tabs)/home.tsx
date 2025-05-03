@@ -28,6 +28,7 @@ export default function HomeScreen() {
             <Text style={styles.subheader}>Sprawdz co mozesz dzisiaj zrobic!</Text>
           </View>
         </View>
+        <Spacer height={20}/>
         {/* Event Info */}
         <View style={styles.card}>
           <View style={styles.row}>
@@ -109,8 +110,9 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     alignItems: 'center',
   },
   scrollContent: {
-    padding: 16,
-    paddingBottom: 80,
+    paddingTop: 70,
+    paddingLeft: 16,
+    paddingRight: 16
   },
   rightSpace: {
     marginRight: 20,

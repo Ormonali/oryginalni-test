@@ -99,11 +99,7 @@ export default function AktualnosciScreen() {
             ))}
           </View>
         ))}
-
-        {/* Your footer here */}
-        <View>
-          <Footer />
-        </View>
+        <Footer />
       </ScrollView>
     </SafeAreaView>
   );
@@ -112,7 +108,7 @@ export default function AktualnosciScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingTop: 20,
   },
   header: {
     fontSize: 22,
@@ -165,18 +161,8 @@ const styles = StyleSheet.create({
     color: "#999",
   },
   scrollContent: {
-    width: "90%",
-    alignItems: "center",
-    paddingBottom: 40,
-    marginLeft: "auto",
-    marginRight: "auto",
-    paddingTop: 90,
-  },
-  footer: {
-    marginTop: 40,
-    paddingVertical: 20,
-    borderTopWidth: 1,
-    borderTopColor: "#ddd",
-    width: "100%",
+    paddingTop: 70,
+    paddingLeft: 16,
+    paddingRight: 16,
   },
 });
