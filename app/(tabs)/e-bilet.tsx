@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import Icon from "react-native-vector-icons/Feather";
 
 export default function TicketScreen() {
   return (
@@ -17,7 +18,9 @@ export default function TicketScreen() {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton}>
-            <Text style={{ fontSize: 24 }}>{"←"}</Text>
+            <View style={styles.circle}>
+              <Icon name="chevron-left" size={22} color="white" />
+            </View>
           </TouchableOpacity>
           <Text style={styles.headerText}>E-przepustka</Text>
         </View>
@@ -41,22 +44,22 @@ export default function TicketScreen() {
 
               {/* Details */}
               <View style={styles.row}>
-                <View style={styles.labelBlock}>
+                <View style={{ width: "70%" }}>
                   <Text style={styles.label}>Data</Text>
                   <Text style={styles.value}>11.03.2026 - 15.03.2026</Text>
                 </View>
-                <View style={styles.labelBlock}>
+                <View style={{ width: "30%" }}>
                   <Text style={styles.label}>Godzina</Text>
                   <Text style={styles.value}>6:00 - 23:00</Text>
                 </View>
               </View>
 
               <View style={styles.row}>
-                <View style={styles.labelBlock}>
+                <View style={{ width: "65%" }}>
                   <Text style={styles.label}>Typ wejściówki</Text>
                   <Text style={styles.value}>Wystawca</Text>
                 </View>
-                <View style={styles.labelBlock}>
+                <View style={{ width: "30%" }}>
                   <Text style={styles.label}>ID</Text>
                   <Text style={styles.value}>54637-22-22</Text>
                 </View>
@@ -145,14 +148,28 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    paddingHorizontal: 20,
     marginBottom: 30,
+    position: "relative",
   },
   backButton: {
-    marginRight: 8,
-    marginLeft: 10,
+    position: "absolute",
+    left: 20,
+  },
+  circle: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: "white",
+    backgroundColor: "#7f8bfa", // light purple background
+    justifyContent: "center",
+    alignItems: "center",
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "600",
     color: "#222",
   },
