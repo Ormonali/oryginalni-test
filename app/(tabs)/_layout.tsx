@@ -17,6 +17,7 @@ import HomeScreen from "./home";
 import AktualnosciScreen from "./aktualnosci";
 import EbiletScreen from "./e-bilet";
 import ProfileScreen from "./profile";
+import TradeInfoScreen from "./informacje-targowe";
 
 type TabConfig = {
   name: string;
@@ -150,7 +151,7 @@ export default function Screen() {
       />
       <Tab.Screen
         name="profile"
-        component={ProfileScreen}
+        component={TradeInfoScreen}
         options={{ title: "Profil" }}
       />
     </Tab.Navigator>

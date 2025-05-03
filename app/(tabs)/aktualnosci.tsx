@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     color: "#999",
   },
   scrollContent: {
-    paddingTop: 90,
+    paddingTop: 70,
     paddingLeft: 16,
     paddingRight: 16,
   },
