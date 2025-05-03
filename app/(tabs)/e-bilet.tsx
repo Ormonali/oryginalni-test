@@ -1,5 +1,7 @@
 import EBiletCard from "@/components/e-bilet-card";
 import { Footer } from "@/components/Footer";
+import { Colors } from "@/constants/Colors";
+import { useColorScheme } from "@/hooks/useColorScheme.web";
 import React from "react";
 import {
   View,
@@ -12,7 +14,9 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
+
 export default function TicketScreen() {
+  const theme = useColorScheme() ?? 'light';
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -26,6 +30,7 @@ export default function TicketScreen() {
         </View>
 
         <EBiletCard
+          circleColor={Colors[theme].biletNotchColor}
           upperContent={
             <View>
               {/* Banner image */}
@@ -144,19 +149,20 @@ const styles = StyleSheet.create({
   scrollContent: {
     alignItems: "center",
     paddingTop: 90,
+    paddingLeft: 16,
+    paddingRight: 16
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    paddingHorizontal: 20,
     marginBottom: 30,
     position: "relative",
   },
   backButton: {
     position: "absolute",
-    left: 20,
+    left: 0,
   },
   circle: {
     width: 36,
@@ -176,8 +182,6 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     borderRadius: 24,
-    width: "90%",
-    padding: 16,
   },
   banner: {
     height: 100,

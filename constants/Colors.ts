@@ -16,6 +16,7 @@ export const Colors = {
     cardAccent: '#2E2E38',
     progressWarning: '#FC0D06',
     glassCardBackground: '#F6F7F8',
+    biletNotchColor: '#6C78E6',
   },
   dark: {
     text: '#F5F5F5',
@@ -31,5 +32,6 @@ export const Colors = {
     cardAccent: '#2E2E38', // optionally adjust this to e.g. '#3A3B3C'
     progressWarning: '#FC0D06', // or something like '#FF6B6B'
     glassCardBackground: '#1E1F20',
+    biletNotchColor: '#6C78E6',
   },
 };

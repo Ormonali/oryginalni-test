@@ -109,8 +109,9 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     alignItems: 'center',
   },
   scrollContent: {
-    padding: 16,
-    paddingBottom: 80,
+    paddingTop: 90,
+    paddingLeft: 16,
+    paddingRight: 16
   },
   rightSpace: {
     marginRight: 20,
