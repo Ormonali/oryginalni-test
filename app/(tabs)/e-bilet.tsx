@@ -16,7 +16,7 @@ import Icon from "react-native-vector-icons/Feather";
 
 
 export default function TicketScreen() {
-  const theme = useColorScheme() ?? 'light';
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -30,7 +30,7 @@ export default function TicketScreen() {
         </View>
 
         <EBiletCard
-          circleColor={Colors[theme].biletNotchColor}
+          circleColor={Colors.biletNotchColor}
           upperContent={
             <View>
               {/* Banner image */}

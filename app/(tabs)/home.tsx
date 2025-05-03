@@ -9,11 +9,11 @@ import BellIcon from '@/components/icons/Bell';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme.web';
+import { useRouter } from 'expo-router';
 
 
 export default function HomeScreen() {
-  const theme = useColorScheme() ?? 'light';
-  const styles = getStyles(theme);
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
@@ -78,7 +78,7 @@ export default function HomeScreen() {
             style={styles.cardImage}
           />
           <Text style={styles.itemText}>Portal <br />dokumentów</Text>
-          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
+          <IconButton onPress={()=>router.navigate('/portal-dokumentow')} Icon={RightBtnIcon}/>
         </View>
         <View style={styles.cardGlass}>
           <Image
@@ -101,7 +101,7 @@ export default function HomeScreen() {
     </View>
   );
 }
-const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -120,7 +120,7 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   header: {
     fontSize: 18,
     fontWeight: '500',
-    color: Colors[theme].text,
+    color: Colors.text,
   },
   greetingContainer: {
     flexDirection: 'row',
@@ -138,27 +138,27 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     resizeMode: 'cover',
   },
   card: {
-    backgroundColor: Colors[theme].white,
+    backgroundColor: Colors.white,
     padding: 16,
     borderRadius: 20,
     marginBottom: 16,
-    shadowColor: Colors[theme].black,
+    shadowColor: Colors.black,
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
   },
   label: {
     fontSize: 14,
-    color: Colors[theme].grey,
+    color: Colors.grey,
   },
   dates: {
-    color: Colors[theme].tint,
+    color: Colors.tint,
     marginBottom: 8,
   },
   link: {
-    color: Colors[theme].text,
+    color: Colors.text,
     marginBottom: 8,
-    textDecorationColor: Colors[theme].text,
+    textDecorationColor: Colors.text,
     textDecorationStyle: 'solid',
     textDecorationLine: 'underline',
     alignSelf: 'flex-end',
@@ -167,13 +167,13 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     marginBottom: 8,
-    color: Colors[theme].text,
+    color: Colors.text,
   },
   daysLeft: {
     fontSize: 12,
-    color: Colors[theme].white,
+    color: Colors.white,
     marginBottom: 18,
-    backgroundColor: Colors[theme].cardAccent,
+    backgroundColor: Colors.cardAccent,
     paddingVertical: 6,
     paddingHorizontal: 16,
     borderRadius: 6,
@@ -182,17 +182,17 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   },
   bold: {
     fontWeight: 'bold',
-    color: Colors[theme].text,
+    color: Colors.text,
   },
   subheader: {
     fontSize: 14,
     fontWeight: '200',
     marginVertical: 0,
-    color: Colors[theme].grey,
+    color: Colors.grey,
   },
   progressText: {
-    backgroundColor: Colors[theme].progressWarning,
-    color: Colors[theme].white,
+    backgroundColor: Colors.progressWarning,
+    color: Colors.white,
     fontWeight: 'bold',
     fontSize: 16,
     paddingVertical: 6,
@@ -203,30 +203,30 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   paragraph: {
     fontSize: 14,
     marginVertical: 12,
-    color: Colors[theme].grey,
+    color: Colors.grey,
     fontWeight: '200',
   },
   button: {
     marginTop: 8,
     marginBottom: 12,
-    backgroundColor: Colors[theme].cardAccent,
+    backgroundColor: Colors.cardAccent,
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',
   },
   buttonText: {
-    color: Colors[theme].white,
+    color: Colors.white,
     fontWeight: '600',
   },
   cardGlass: {
-    borderColor: Colors[theme].white,
+    borderColor: Colors.white,
     borderRadius: 20,
     borderWidth: 1.5,
-    backgroundColor: Colors[theme].glassCardBackground,
+    backgroundColor: Colors.glassCardBackground,
     paddingHorizontal: 18,
     paddingVertical: 10,
     marginTop: 16,
-    shadowColor: Colors[theme].black,
+    shadowColor: Colors.black,
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
@@ -241,7 +241,7 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   itemText: {
     fontSize: 16,
     fontWeight: '400',
-    color: Colors[theme].grey,
+    color: Colors.grey,
     marginRight: 'auto',
   },
 });
