@@ -7,7 +7,14 @@ import IconButton from '@/components/IconButton';
 import RightBtnIcon from '@/components/icons/RightBtn';
 import BellIcon from '@/components/icons/Bell';
 import Spacer from '@/components/Spacer';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme.web';
+
+
 export default function HomeScreen() {
+  const theme = useColorScheme() ?? 'light';
+  const styles = getStyles(theme);
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -93,26 +100,25 @@ export default function HomeScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
+const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   container: {
     flex: 1,
   },
   row: {
-    display: 'flex',
     flexDirection: 'row',
-    alignItems: "center"
+    alignItems: 'center',
   },
   scrollContent: {
     padding: 16,
-    paddingBottom: 80, // space for footer
+    paddingBottom: 80,
   },
-  rightSpace:{
+  rightSpace: {
     marginRight: 20,
   },
   header: {
     fontSize: 18,
     fontWeight: '500',
+    color: Colors[theme].text,
   },
   greetingContainer: {
     flexDirection: 'row',
@@ -127,101 +133,103 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 24,
     marginRight: 16,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors[theme].white,
     padding: 16,
     borderRadius: 20,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: Colors[theme].black,
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
   },
   label: {
     fontSize: 14,
-    color: '#888',
+    color: Colors[theme].grey,
   },
   dates: {
-    color: '#4a64d1',
+    color: Colors[theme].tint,
     marginBottom: 8,
   },
   link: {
-    color: '#333',
+    color: Colors[theme].text,
     marginBottom: 8,
-    textDecorationColor: '#333',
+    textDecorationColor: Colors[theme].text,
     textDecorationStyle: 'solid',
     textDecorationLine: 'underline',
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
   },
   title: {
     fontWeight: '500',
     fontSize: 16,
     marginBottom: 8,
+    color: Colors[theme].text,
   },
   daysLeft: {
     fontSize: 12,
-    color: '#fff',
+    color: Colors[theme].white,
     marginBottom: 18,
-    backgroundColor: '#2E2E38',
+    backgroundColor: Colors[theme].cardAccent,
     paddingVertical: 6,
     paddingHorizontal: 16,
     borderRadius: 6,
     alignSelf: 'flex-start',
-    fontWeight: '200'
+    fontWeight: '200',
   },
   bold: {
     fontWeight: 'bold',
+    color: Colors[theme].text,
   },
   subheader: {
     fontSize: 14,
     fontWeight: '200',
     marginVertical: 0,
-    color: '#666',
+    color: Colors[theme].grey,
   },
   progressText: {
-    backgroundColor: '#FC0D06',
-    color: '#fff',
+    backgroundColor: Colors[theme].progressWarning,
+    color: Colors[theme].white,
     fontWeight: 'bold',
     fontSize: 16,
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 8,
-    marginLeft: 'auto'
+    marginLeft: 'auto',
   },
   paragraph: {
     fontSize: 14,
     marginVertical: 12,
-    color: '#666',
-    fontWeight: '200'
+    color: Colors[theme].grey,
+    fontWeight: '200',
   },
   button: {
     marginTop: 8,
     marginBottom: 12,
-    backgroundColor: '#2E2E38',
+    backgroundColor: Colors[theme].cardAccent,
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: Colors[theme].white,
     fontWeight: '600',
   },
   cardGlass: {
-    borderColor: '#fff',
+    borderColor: Colors[theme].white,
     borderRadius: 20,
     borderWidth: 1.5,
-    backgroundColor: '#F6F7F8',
-    padding: 18,
+    backgroundColor: Colors[theme].glassCardBackground,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
     marginTop: 16,
-    shadowColor: '#000',
+    shadowColor: Colors[theme].black,
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
-    display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   cardImage: {
     width: 50,
@@ -231,7 +239,8 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
     fontWeight: '400',
-    color: "#6F6F6F",
-    marginRight: 'auto'
+    color: Colors[theme].grey,
+    marginRight: 'auto',
   },
 });
+
