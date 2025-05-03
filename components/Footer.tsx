@@ -1,14 +1,16 @@
 import { Image, StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import Stack from './Stack';
 import { Colors } from '@/constants/Colors';
 
-export function Footer() {
-  const theme = useColorScheme() ?? 'light';
-  const isDark = theme === 'dark';
-  const textColor = { color: isDark ? Colors.dark.white : Colors.dark.grey };
+type FooterProps = {
+  colorMode?: 'light' | 'dark';
+};
+
+export function Footer({ colorMode = 'light' }: FooterProps) {
+  const isDark = colorMode === 'dark';
+  const textColor = { color: isDark ? Colors.dark.white : Colors.dark.grey,  };
 
   const logoSource = require('@/assets/images/logo-dark.png');
 
@@ -17,7 +19,7 @@ export function Footer() {
       style={{
         backgroundColor: 'transparent',
         marginTop: 50,
-        marginBottom: 100,
+        marginBottom: 120,
         alignItems: 'center',
       }}
     >
@@ -46,6 +48,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 10,
-    fontWeight: '500'
+    fontWeight: 300,
   },
 });
