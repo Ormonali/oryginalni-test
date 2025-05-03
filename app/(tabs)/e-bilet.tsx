@@ -126,7 +126,7 @@ export default function TicketScreen() {
             </View>
           </View>
         </View>
-        <Footer />
+        <Footer colorMode="dark"/>
       </ScrollView>
     </SafeAreaView>
   );
