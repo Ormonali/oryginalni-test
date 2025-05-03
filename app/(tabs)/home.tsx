@@ -243,4 +243,3 @@ const getStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     marginRight: 'auto',
   },
 });
-
