@@ -69,6 +69,19 @@ export default function MaterialMarketingScreen() {
         <Pressable onPress={goBack} style={styles.backButton}>
           <Text style={styles.backArrow}>‹</Text>
         </Pressable>
+        <Image
+            source={{ uri: "https://via.placeholder.com/40" }}
+            style={[
+              styles.headerIcon,
+              {
+                width: 42,
+                height: 42,
+                borderRadius: 22,
+                borderWidth: 1,
+                borderColor: "#3d3d3d",
+              },
+            ]}
+          />
         <Text style={styles.headerText}>Materiały Marketingowe</Text>
       </View>
 
@@ -119,6 +132,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: Colors.backBtn,
     marginTop: -4,
+  },
+  headerIcon: {
+    width: 40,
+    height: 40,
+    marginBottom: 8,
   },
   headerText: {
     fontSize: 20,
