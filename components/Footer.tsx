@@ -5,21 +5,21 @@ import Stack from './Stack';
 import { Colors } from '@/constants/Colors';
 
 type FooterProps = {
-  colorMode?: 'light' | 'dark';
+  textColor?: 'light' | 'dark';
+  imageColor?: 'light' | 'dark';
 };
 
-export function Footer({ colorMode = 'light' }: FooterProps) {
-  const isDark = colorMode === 'dark';
-  const textColor = { color: isDark ? Colors.white : Colors.grey,  };
+export function Footer({ textColor = 'dark', imageColor = 'dark' }: FooterProps) {
+  const txtColor = { color: textColor == 'light' ? Colors.white : Colors.grey,  };
 
-  const logoSource = require('@/assets/images/logo-dark.png');
+  const logoSource = imageColor ==  'light' ?  require('@/assets/images/logo-white.png') : require('@/assets/images/logo-dark.png');
 
   return (
     <ThemedView
       style={{
         backgroundColor: 'transparent',
-        marginTop: 50,
-        marginBottom: 120,
+        marginTop: 30,
+        marginBottom: 50,
         alignItems: 'center',
       }}
     >
@@ -29,11 +29,11 @@ export function Footer({ colorMode = 'light' }: FooterProps) {
           source={logoSource}
         />
         <Stack direction="row" spacing={8} alignItems="center">
-          <ThemedText style={[styles.text, textColor]}>Kontakt</ThemedText>
-          <ThemedText style={[styles.text, textColor]}>•</ThemedText>
-          <ThemedText style={[styles.text, textColor]}>Polityka prywatności</ThemedText>
-          <ThemedText style={[styles.text, textColor]}>•</ThemedText>
-          <ThemedText style={[styles.text, textColor]}>www.warsawexpo.eu</ThemedText>
+          <ThemedText style={[styles.text, txtColor]}>Kontakt</ThemedText>
+          <ThemedText style={[styles.text, txtColor]}>•</ThemedText>
+          <ThemedText style={[styles.text, txtColor]}>Polityka prywatności</ThemedText>
+          <ThemedText style={[styles.text, txtColor]}>•</ThemedText>
+          <ThemedText style={[styles.text, txtColor]}>www.warsawexpo.eu</ThemedText>
         </Stack>
       </Stack>
     </ThemedView>

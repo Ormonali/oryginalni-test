@@ -134,7 +134,7 @@ export default function TicketScreen() {
             </View>
           </View>
         </View>
-        <Footer colorMode="dark"/>
+        <Footer textColor="light"/>
       </ScrollView>
     </SafeAreaView>
   );
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#6C78E6",
     alignItems: "center",
+    paddingBottom: 70
   },
   scrollContent: {
     alignItems: "center",
