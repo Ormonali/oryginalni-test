@@ -37,6 +37,7 @@ export default function RootLayout() {
           <Stack.Screen name="+not-found" />
           <Stack.Screen name="portal-dokumentow" options={{ headerShown: false,  }} />
           <Stack.Screen name="materialy-marketingowe" options={{ headerShown: false,  }} />
+          <Stack.Screen name="informacje-targowe" options={{ headerShown: false,  }} />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>

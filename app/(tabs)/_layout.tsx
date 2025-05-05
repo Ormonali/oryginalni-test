@@ -16,8 +16,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "./home";
 import AktualnosciScreen from "./aktualnosci";
 import EbiletScreen from "./e-bilet";
+import TradeInfoScreen from "../informacje-targowe";
 import ProfileScreen from "./profile";
-import TradeInfoScreen from "./informacje-targowe";
 
 type TabConfig = {
   name: string;
@@ -151,7 +151,7 @@ export default function Screen() {
       />
       <Tab.Screen
         name="profile"
-        component={TradeInfoScreen}
+        component={ProfileScreen}
         options={{ title: "Profil" }}
       />
     </Tab.Navigator>

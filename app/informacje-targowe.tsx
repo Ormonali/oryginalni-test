@@ -6,18 +6,47 @@ import {
   StyleSheet,
   Image,
   ScrollView,
-  TouchableOpacity,
   Pressable,
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
-import TradeFairScreen from "./test";
+import { useRouter } from "expo-router";
+import TradeFairScreen from "./informacje-tagowe-2";
 
 export default function TradeInfoScreen() {
+  const router = useRouter();
+  const goBack = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.navigate("/");
+    }
+  };
+
+  const scheduleData = [
+    {
+      label: "Montaż indywidualny",
+      entries: [
+        { date: "20.10.2025", time: "8:00 - 18:00" },
+        { date: "21.10.2025", time: "8:00 - 20:00" },
+      ],
+    },
+    {
+      label: "Montaż PTAK EXPO",
+      entries: [{ date: "21.10.2025", time: "8:00 - 20:00" }],
+    },
+    {
+      label: "Demontaż",
+      entries: [
+        { date: "25.10.2025", time: "17:00 - 24:00" },
+        { date: "26.10.2025", time: "8:00 - 12:00" },
+      ],
+    },
+  ];
   return (
     <ScrollView style={styles.container} contentContainerStyle={{}}>
       {/* Header */}
       <View style={styles.header}>
-        <Pressable onPress={() => {}} style={styles.backButton}>
+        <Pressable onPress={goBack} style={styles.backButton}>
           <Text style={styles.backArrow}>‹</Text>
         </Pressable>
         <Image
@@ -135,39 +164,29 @@ export default function TradeInfoScreen() {
           </View>
 
           {/* Construction Schedule */}
-          <Text style={styles.blockTitle}>Zabudowa targowa:</Text>
-          <Text style={styles.label}>Montaż indywidualny</Text>
-          <Text style={styles.value}>
-            <Text style={styles.bold}>20.10.2025</Text>{" "}
-            <Text style={styles.blueTime}>8:00 - 18:00</Text>,
+          <Text style={[styles.blockTitle, { marginBottom: 20 }]}>
+            Zabudowa targowa:
           </Text>
-          <Text style={styles.value}>
-            <Text style={styles.bold}>21.10.2025</Text>{" "}
-            <Text style={styles.blueTime}>8:00 - 20:00</Text>
-          </Text>
+          {scheduleData.map((section, index) => (
+            <View key={index} style={{ marginBottom: 16 }}>
+              <Text style={[styles.label, { marginBottom: 10 }]}>
+                {section.label}
+              </Text>
+              {section.entries.map((entry, i) => (
+                <Text key={i} style={[styles.value, { marginBottom: 5 }]}>
+                  <Text style={styles.bold}>{entry.date}</Text>{" "}
+                  <Text style={styles.blueTime}>{entry.time}</Text>
+                </Text>
+              ))}
+            </View>
+          ))}
 
-          <Text style={[styles.label, { marginTop: 12 }]}>
-            Montaż PTAK EXPO
-          </Text>
-          <Text style={styles.value}>
-            <Text style={styles.bold}>21.10.2025</Text>{" "}
-            <Text style={styles.blueTime}>8:00 - 20:00</Text>
-          </Text>
-
-          <Text style={[styles.label, { marginTop: 12 }]}>Demontaż</Text>
-          <Text style={styles.value}>
-            <Text style={styles.bold}>25.10.2025</Text>{" "}
-            <Text style={styles.blueTime}>17:00 - 24:00</Text>
-          </Text>
-          <Text style={styles.value}>
-            <Text style={styles.bold}>26.10.2025</Text>{" "}
-            <Text style={styles.blueTime}>8:00 - 12:00</Text>
-          </Text>
-
-          <TouchableOpacity style={styles.documentBtn}>
-            <Text style={styles.link}>Zobacz dokumenty</Text>
-            <Icon name="arrow-right" size={18} color="#fff" />
-          </TouchableOpacity>
+          <View style={styles.row}>
+            <Text style={styles.linkText}>Zobacz dokumenty</Text>
+            <Pressable style={styles.circleButton}>
+              <Text style={styles.arrow}>{"→"}</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
       <TradeFairScreen />
@@ -179,7 +198,7 @@ export default function TradeInfoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1E1E23",
+    backgroundColor: "#2e2e38",
     paddingTop: 70,
     paddingHorizontal: 20,
   },
@@ -331,7 +350,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderColor: "grey",
     borderBottomWidth: 1,
-    paddingBottom: 15,
+    paddingBottom: 20,
   },
 
   boothRow: {
@@ -363,5 +382,26 @@ const styles = StyleSheet.create({
   link: {
     color: "#fff",
     fontSize: 13,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  linkText: {
+    fontSize: 13,
+    textDecorationLine: "underline",
+    marginRight: 15,
+  },
+  circleButton: {
+    width: 30,
+    height: 30,
+    backgroundColor: "#6d83f2",
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  arrow: {
+    fontSize: 14,
+    color: "#fff",
   },
 });
