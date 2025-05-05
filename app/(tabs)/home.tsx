@@ -86,7 +86,7 @@ export default function HomeScreen() {
             style={styles.cardImage}
           />
           <Text style={styles.itemText}>Materialy <br />marketingowe</Text>
-          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
+          <IconButton onPress={()=>router.navigate('/materialy-marketingowe')} Icon={RightBtnIcon}/>
         </View>
         <View style={styles.cardGlass}>
           <Image
@@ -96,7 +96,7 @@ export default function HomeScreen() {
           <Text style={styles.itemText}>Generator <br />zaproszen</Text>
           <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
         </View>
-        <Footer />
+        <Footer/>
       </ScrollView>
     </View>
   );
@@ -104,6 +104,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 70
   },
   row: {
     flexDirection: 'row',

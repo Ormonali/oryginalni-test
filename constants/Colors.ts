@@ -17,5 +17,7 @@ export const Colors = {
   glassCardBackground: '#F6F7F8',
   biletNotchColor: '#6C78E6',
   backgroundGrey: '#EDEFF1',
+  backgroundBlack: '#1E1E23',
   underline: '#E8E9EC',
+  backBtn: '#73C6A4',
 };
