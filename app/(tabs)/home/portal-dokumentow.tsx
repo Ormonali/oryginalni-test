@@ -78,7 +78,7 @@ export default function PortalScreen() {
                   style={styles.cardImage}
                 />
                 <Text style={styles.itemText}>{el.name}</Text>
-                <IconButton onPress={() => router.navigate('/portal-dokumentow')} Icon={DownloadIcon} />
+                <IconButton onPress={() => router.navigate('/home/portal-dokumentow')} Icon={DownloadIcon} />
               </View>
             ))
           }  
@@ -103,7 +103,7 @@ export default function PortalScreen() {
                     style={styles.cardImage}
                   />
                   <Text style={styles.itemText}>{el.name}</Text>
-                  <IconButton onPress={() => router.navigate('/portal-dokumentow')} Icon={DownloadIcon} />
+                  <IconButton onPress={() => router.navigate('/home/portal-dokumentow')} Icon={DownloadIcon} />
                 </View>
               ))
             }
@@ -127,7 +127,7 @@ export default function PortalScreen() {
                     style={styles.cardImage}
                   />
                   <Text style={styles.itemText}>{el.name}</Text>
-                  <IconButton onPress={() => router.navigate('/portal-dokumentow')} Icon={DownloadIcon} />
+                  <IconButton onPress={() => router.navigate('/home/portal-dokumentow')} Icon={DownloadIcon} />
                 </View>
               ))
             }

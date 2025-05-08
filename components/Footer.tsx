@@ -19,7 +19,7 @@ export function Footer({ textColor = 'dark', imageColor = 'dark' }: FooterProps)
       style={{
         backgroundColor: 'transparent',
         marginTop: 30,
-        marginBottom: 50,
+        marginBottom: 120,
         alignItems: 'center',
       }}
     >

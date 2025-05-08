@@ -1,20 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, Pressable } from 'react-native';
 import { Footer } from '@/components/Footer';
-import ProgressBar from '@/components/ProgressBar';
-import { Subheader } from 'react-native-paper/lib/typescript/components/List/List';
-import IconButton from '@/components/IconButton';
-import RightBtnIcon from '@/components/icons/RightBtn';
-import BellIcon from '@/components/icons/Bell';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme.web';
-import { useRouter } from 'expo-router';
+import EventInfoCard from '@/components/EventInfoCard';
 
 
 export default function PlannedEventsScreen() {
-  const router = useRouter();
-
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -29,20 +21,14 @@ export default function PlannedEventsScreen() {
           </View>
         </View>
         <Spacer height={20}/>
-        {/* Event Info */}
-        <View style={styles.card}>
-          <View style={styles.row}>
-            <Image style={styles.rightSpace}
-              source={require('@/assets/images/expo.png')} // Adjust the path based on your setup
-            />
-            <View style={styles.container}>
-              <Text style={styles.label}>Twoje wydarzenie:</Text>
-              <Text style={styles.dates}>11.03.2026–15.03.2026</Text>
-              <Text style={styles.title}>International Trade Fair for Building Technologies and Materials</Text>
-              <Text style={styles.link}>zmień</Text>
-            </View>
-          </View>
-        </View>
+        <EventInfoCard
+          imageSource={require('@/assets/images/expo.png')}
+          label="Twoje wydarzenie:"
+          dates="11.03.2026–15.03.2026"
+          title="International Trade Fair for Building Technologies and Materials"
+          buttonText="wybierz"
+          onChangePress={() => {}}
+        />
         <Footer />
       </ScrollView>
     </View>

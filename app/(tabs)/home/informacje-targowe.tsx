@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { useRouter } from "expo-router";
-import TradeFairScreen from "./informacje-tagowe-2";
+import TradeFairScreen from "../../informacje-tagowe-2";
 
 export default function TradeInfoScreen() {
   const router = useRouter();
@@ -190,7 +190,7 @@ export default function TradeInfoScreen() {
         </View>
       </View>
       <TradeFairScreen />
-      <Footer />
+      <Footer imageColor="light"/>
     </ScrollView>
   );
 }
