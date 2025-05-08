@@ -1,20 +1,20 @@
-// components/HomeCardButton.tsx
 import React from 'react';
-import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { SvgProps } from 'react-native-svg'; // ✅ Import correct props type
 import IconButton from '@/components/IconButton';
 import RightBtnIcon from '@/components/icons/RightBtn';
 import { Colors } from '@/constants/Colors';
 
 type Props = {
   text: string;
-  image: ImageSourcePropType;
+  SvgIcon: React.FC<SvgProps>;
   onPress: () => void;
 };
 
-export default function HomeCardButton({ text, image, onPress }: Props) {
+export default function HomeCardButton({ text, SvgIcon, onPress }: Props) {
   return (
     <View style={styles.cardGlass}>
-      <Image source={image} style={styles.cardImage} />
+      <SvgIcon width={50} height={50} style={styles.cardImage} />
       <Text style={styles.itemText}>{text}</Text>
       <IconButton onPress={onPress} Icon={RightBtnIcon} />
     </View>
@@ -38,8 +38,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardImage: {
-    width: 50,
-    height: 50,
     marginRight: 30,
   },
   itemText: {

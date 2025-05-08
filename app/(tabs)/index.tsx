@@ -2,13 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image  } from 'react-native';
 import { Footer } from '@/components/Footer';
 import ProgressBar from '@/components/ProgressBar';
-import IconButton from '@/components/IconButton';
-import RightBtnIcon from '@/components/icons/RightBtn';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
 import { useRouter } from 'expo-router';
 import EventInfoCard from '@/components/home/EventInfoCard';
 import HomeCardButton from '@/components/home/HomeCardButton';
+import BellIcon from '@/assets/images/bell.svg';
 
 
 export default function HomeScreen() {
@@ -57,22 +56,22 @@ export default function HomeScreen() {
         <Text style={styles.header}>Ważne sprawy dotyczące wydarzenia:</Text>
         <HomeCardButton
           text={'Informacje \ntargowe'}
-          image={require('@/assets/images/bell.svg')}
+          SvgIcon={BellIcon}
           onPress={() => router.navigate('/home/informacje-targowe')}
         />
         <HomeCardButton
           text={'Portal \ndokumentów'}
-          image={require('@/assets/images/bell.svg')}
+          SvgIcon={BellIcon}
           onPress={() => router.navigate('/home/portal-dokumentow')}
         />
         <HomeCardButton
           text={'Materialy \nmarketingowe'}
-          image={require('@/assets/images/bell.svg')}
+          SvgIcon={BellIcon}
           onPress={() => router.navigate('/home/materialy-marketingowe')}
         />
         <HomeCardButton
           text={'Generator \nzaproszen'}
-          image={require('@/assets/images/bell.svg')}
+          SvgIcon={BellIcon}
           onPress={() => {}}
         />
         <Footer />
@@ -83,6 +82,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.background
   },
   bold:{
     fontWeight: 'bold'

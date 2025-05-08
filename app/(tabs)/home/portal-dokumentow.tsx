@@ -115,7 +115,7 @@ export default function PortalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundGrey,
+    backgroundColor: Colors.background,
     paddingTop: 70,
     paddingHorizontal: 20,
   },

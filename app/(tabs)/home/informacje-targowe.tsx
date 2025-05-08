@@ -11,6 +11,7 @@ import {
 import Icon from "react-native-vector-icons/Feather";
 import { useRouter } from "expo-router";
 import TradeFairScreen from "../../informacje-tagowe-2";
+import { Colors } from "@/constants/Colors";
 
 export default function TradeInfoScreen() {
   const router = useRouter();
@@ -198,7 +199,7 @@ export default function TradeInfoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2e2e38",
+    backgroundColor: Colors.background,
     paddingTop: 70,
     paddingHorizontal: 20,
   },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { View, StyleSheet } from "react-native";
 
 type EBiletCardType = {
@@ -6,6 +6,7 @@ type EBiletCardType = {
   lowerContent: JSX.Element;
   circleColor: string;
 };
+
 export default function EBiletCard({
   upperContent,
   lowerContent,
@@ -15,9 +16,13 @@ export default function EBiletCard({
     <View style={styles.card}>
       {upperContent}
       <View style={styles.dividerContainer}>
-        <View style={[styles.notchLeft, {backgroundColor: circleColor }]} />
-        <View style={styles.dashedLine} />
-        <View style={[styles.notchRight, {backgroundColor: circleColor }]} />
+        <View style={[styles.notchLeft, { backgroundColor: circleColor }]} />
+        <View style={styles.dashRow}>
+          {Array.from({ length: 15 }).map((_, index) => (
+            <View key={index} style={styles.dash} />
+          ))}
+        </View>
+        <View style={[styles.notchRight, { backgroundColor: circleColor }]} />
       </View>
       {lowerContent}
     </View>
@@ -31,19 +36,25 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   dividerContainer: {
-    height: 40, // enough space for notches
+    height: 40,
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
     marginVertical: 20,
   },
-  dashedLine: {
-    width: "100%",
-    height: 1, // height becomes the line thickness
-    backgroundImage: "repeating-linear-gradient(to right, #6C78E6 0 8px, transparent 10px 16px)",
-    backgroundColor: "transparent",
+  dashRow: {
+    flexDirection: "row",
     position: "absolute",
     top: "50%",
+    left: 0,
+    right: 0,
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+  },
+  dash: {
+    width: 10,
+    height: 1,
+    backgroundColor: "#6C78E6",
   },
   notchLeft: {
     position: "absolute",
@@ -51,7 +62,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "",
   },
   notchRight: {
     position: "absolute",
