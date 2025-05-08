@@ -41,7 +41,7 @@ export default function HomeScreen() {
         <View style={styles.card}>
           <Text style={styles.daysLeft}>Do wydarzenia zostało <Text style={styles.bold}>386 dni</Text></Text>
           <View style={styles.row}>
-            <Text style={styles.header}>Dobrze Ci idzie! <br />Uzupełniaj checklistę dalej!</Text>
+            <Text style={styles.header}>Dobrze Ci idzie! {'\n'}Uzupełniaj checklistę dalej!</Text>
             <Text style={styles.progressText}>21%</Text>
           </View>
           <Text style={styles.paragraph}>
