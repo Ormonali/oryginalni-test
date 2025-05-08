@@ -52,7 +52,8 @@ type MaterialItem = {
 
 export default function MaterialMarketingScreen() {
   const router = useRouter();
-  const goBack = () => (router.canGoBack() ? router.back() : router.navigate("/"));
+  //TODO fix back method
+  const goBack = () => (router.canGoBack() ? router.navigate("/") : router.navigate("/"));
 
   const renderSection = (title: string, items: MaterialItem[]) => (
     <View style={styles.section}>

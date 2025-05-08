@@ -34,13 +34,8 @@ export default function PortalScreen() {
   const router = useRouter();
   const [downloadingFile, setDownloadingFile] = useState<string | null>(null);
 
-  const goBack = () => {
-    if (router.canGoBack()) {
-      router.back();
-    } else {
-      router.navigate("/");
-    }
-  };
+  //TODO fix back method
+  const goBack = () => (router.canGoBack() ? router.navigate("/") : router.navigate("/"));
 
   const renderItems = (title: string) => (
     <View style={styles.cardPadding}>

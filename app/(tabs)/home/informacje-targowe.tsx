@@ -15,13 +15,8 @@ import { Colors } from "@/constants/Colors";
 
 export default function TradeInfoScreen() {
   const router = useRouter();
-  const goBack = () => {
-    if (router.canGoBack()) {
-      router.back();
-    } else {
-      router.navigate("/");
-    }
-  };
+  //TODO fix back method
+  const goBack = () => (router.canGoBack() ? router.navigate("/") : router.navigate("/"));
 
   const scheduleData = [
     {
