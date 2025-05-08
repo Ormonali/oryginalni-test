@@ -2,6 +2,7 @@ const tintColorLight = '#0a7ea4';
 const tintColorDark = '#4FC3F7';
 
 export const Colors = {
+  accent: '#6F88F6',
   text: '#11181C',
   grey: '#6B7280',
   tabShadow: 'rgba(0, 0, 0, 0.05)',
@@ -20,4 +21,5 @@ export const Colors = {
   backgroundBlack: '#1E1E23',
   underline: '#E8E9EC',
   backBtn: '#73C6A4',
+  cardColor: '#F7F8FB',
 };

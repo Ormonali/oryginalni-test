@@ -7,7 +7,8 @@ import RightBtnIcon from '@/components/icons/RightBtn';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
 import { useRouter } from 'expo-router';
-import EventInfoCard from '@/components/EventInfoCard';
+import EventInfoCard from '@/components/home/EventInfoCard';
+import HomeCardButton from '@/components/home/HomeCardButton';
 
 
 export default function HomeScreen() {
@@ -54,38 +55,26 @@ export default function HomeScreen() {
 
         <Spacer height={20}/>
         <Text style={styles.header}>Ważne sprawy dotyczące wydarzenia:</Text>
-        <View style={styles.cardGlass}>
-          <Image
-            source={require('@/assets/images/bell.svg')}
-            style={styles.cardImage}
-          />
-          <Text style={styles.itemText}>Informacje <br />targowe</Text>
-          <IconButton onPress={()=>router.navigate('/home/informacje-targowe')} Icon={RightBtnIcon}/>
-        </View>
-        <View style={styles.cardGlass}>
-          <Image
-            source={require('@/assets/images/bell.svg')}
-            style={styles.cardImage}
-          />
-          <Text style={styles.itemText}>Portal <br />dokumentów</Text>
-          <IconButton onPress={()=>router.navigate('/home/portal-dokumentow')} Icon={RightBtnIcon}/>
-        </View>
-        <View style={styles.cardGlass}>
-          <Image
-            source={require('@/assets/images/bell.svg')}
-            style={styles.cardImage}
-          />
-          <Text style={styles.itemText}>Materialy <br />marketingowe</Text>
-          <IconButton onPress={()=>router.navigate('/home/materialy-marketingowe')} Icon={RightBtnIcon}/>
-        </View>
-        <View style={styles.cardGlass}>
-          <Image
-            source={require('@/assets/images/bell.svg')}
-            style={styles.cardImage}
-          />
-          <Text style={styles.itemText}>Generator <br />zaproszen</Text>
-          <IconButton onPress={()=>{}} Icon={RightBtnIcon}/>
-        </View>
+        <HomeCardButton
+          text={'Informacje \ntargowe'}
+          image={require('@/assets/images/bell.svg')}
+          onPress={() => router.navigate('/home/informacje-targowe')}
+        />
+        <HomeCardButton
+          text={'Portal \ndokumentów'}
+          image={require('@/assets/images/bell.svg')}
+          onPress={() => router.navigate('/home/portal-dokumentow')}
+        />
+        <HomeCardButton
+          text={'Materialy \nmarketingowe'}
+          image={require('@/assets/images/bell.svg')}
+          onPress={() => router.navigate('/home/materialy-marketingowe')}
+        />
+        <HomeCardButton
+          text={'Generator \nzaproszen'}
+          image={require('@/assets/images/bell.svg')}
+          onPress={() => {}}
+        />
         <Footer />
       </ScrollView>
     </View>
@@ -95,22 +84,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  bold:{
+    fontWeight: 'bold'
   },
   scrollContent: {
     paddingTop: 70,
     paddingLeft: 16,
     paddingRight: 16
-  },
-  rightSpace: {
-    marginRight: 20,
-  },
-  header: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: Colors.text,
   },
   greetingContainer: {
     flexDirection: 'row',
@@ -127,6 +107,17 @@ const styles = StyleSheet.create({
     marginRight: 16,
     resizeMode: 'cover',
   },
+  header: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: Colors.text,
+  },
+  subheader: {
+    fontSize: 14,
+    fontWeight: '200',
+    marginVertical: 0,
+    color: Colors.grey,
+  },
   card: {
     backgroundColor: Colors.white,
     padding: 16,
@@ -136,28 +127,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
-  },
-  label: {
-    fontSize: 14,
-    color: Colors.grey,
-  },
-  dates: {
-    color: Colors.tint,
-    marginBottom: 8,
-  },
-  link: {
-    color: Colors.text,
-    marginBottom: 8,
-    textDecorationColor: Colors.text,
-    textDecorationStyle: 'solid',
-    textDecorationLine: 'underline',
-    alignSelf: 'flex-end',
-  },
-  title: {
-    fontWeight: '500',
-    fontSize: 16,
-    marginBottom: 8,
-    color: Colors.text,
   },
   daysLeft: {
     fontSize: 12,
@@ -170,15 +139,9 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     fontWeight: '200',
   },
-  bold: {
-    fontWeight: 'bold',
-    color: Colors.text,
-  },
-  subheader: {
-    fontSize: 14,
-    fontWeight: '200',
-    marginVertical: 0,
-    color: Colors.grey,
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   progressText: {
     backgroundColor: Colors.progressWarning,
@@ -207,31 +170,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: Colors.white,
     fontWeight: '600',
-  },
-  cardGlass: {
-    borderColor: Colors.white,
-    borderRadius: 20,
-    borderWidth: 1.5,
-    backgroundColor: Colors.glassCardBackground,
-    paddingHorizontal: 18,
-    paddingVertical: 10,
-    marginTop: 16,
-    shadowColor: Colors.black,
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  cardImage: {
-    width: 50,
-    height: 50,
-    marginRight: 30,
-  },
-  itemText: {
-    fontSize: 16,
-    fontWeight: '400',
-    color: Colors.grey,
-    marginRight: 'auto',
   },
 });

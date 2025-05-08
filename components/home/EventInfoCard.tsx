@@ -4,7 +4,7 @@ import { Colors } from '@/constants/Colors';
 
 type Props = {
   imageSource: any;
-  label: string;
+  label?: string;
   dates: string;
   title: string;
   buttonText: string;
@@ -15,11 +15,11 @@ export default function EventInfoCard({ imageSource, label, dates, title, button
   return (
     <View style={styles.card}>
       <View style={styles.row}>
-        <Image style={styles.rightSpace} source={imageSource} />
-        <View style={{ flex: 1 }}>
-          <Text style={styles.label}>{label}</Text>
+        <Image style={styles.image} source={imageSource} />
+        <View style={styles.textsContainer}>
+          <Text style={styles.label}>{label || ''}</Text>
           <Text style={styles.dates}>{dates}</Text>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title} numberOfLines={3}>{title}</Text>
           <Pressable onPress={onChangePress}>
             <Text style={styles.link}>{buttonText}</Text>
           </Pressable>
@@ -31,7 +31,10 @@ export default function EventInfoCard({ imageSource, label, dates, title, button
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.cardColor,
+    borderColor: Colors.white,
+    borderWidth: 1,
+    borderStyle: 'solid',
     padding: 16,
     borderRadius: 20,
     marginBottom: 16,
@@ -40,24 +43,32 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
+  textsContainer:{
+    flex: 1,
+    marginLeft: 'auto'
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  rightSpace: {
+  image: {
     marginRight: 20,
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
   },
   label: {
     fontSize: 14,
+    minHeight: 20,
     color: Colors.grey,
   },
   dates: {
-    color: Colors.tint,
+    color: Colors.accent,
     marginBottom: 8,
   },
   title: {
-    fontWeight: '500',
-    fontSize: 16,
+    fontWeight: '400',
+    fontSize: 14,
     marginBottom: 8,
     color: Colors.text,
   },

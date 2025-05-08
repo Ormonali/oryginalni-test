@@ -3,7 +3,27 @@ import { View, Text, StyleSheet, ScrollView, Image, Pressable } from 'react-nati
 import { Footer } from '@/components/Footer';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
-import EventInfoCard from '@/components/EventInfoCard';
+import EventInfoCard from '@/components/home/EventInfoCard';
+const mockEvents = [
+  {
+    id: '1',
+    imageSource: require('@/assets/images/expo.png'),
+    dates: '11.03.2026–15.03.2026',
+    title: 'International Trade Fair for Building Technologies and Materials',
+  },
+  {
+    id: '2',
+    imageSource: require('@/assets/images/expo.png'),
+    dates: '20.04.2026–22.04.2026',
+    title: 'International Trade Fair for Building Technologies and Materials',
+  },
+  {
+    id: '3',
+    imageSource: require('@/assets/images/expo.png'),
+    dates: '01.06.2026–03.06.2026',
+    title: 'International Trade Fair for Building Technologies and Materials',
+  },
+];
 
 
 export default function PlannedEventsScreen() {
@@ -21,14 +41,18 @@ export default function PlannedEventsScreen() {
           </View>
         </View>
         <Spacer height={20}/>
-        <EventInfoCard
-          imageSource={require('@/assets/images/expo.png')}
-          label="Twoje wydarzenie:"
-          dates="11.03.2026–15.03.2026"
-          title="International Trade Fair for Building Technologies and Materials"
-          buttonText="wybierz"
-          onChangePress={() => {}}
-        />
+        <Text style={styles.header}>Twoje zaplanowane wydarzenia:</Text>
+        <Spacer height={10}/>
+        {mockEvents.map((event) => (
+          <EventInfoCard
+            key={event.id}
+            imageSource={event.imageSource}
+            dates={event.dates}
+            title={event.title}
+            buttonText="wybierz"
+            onChangePress={() => console.log(`Pressed event: ${event.id}`)}
+          />
+        ))}
         <Footer />
       </ScrollView>
     </View>
