@@ -1,4 +1,5 @@
 import { Footer } from "@/components/Footer";
+import { Colors } from "@/constants/Colors";
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    marginBottom: 70
+    backgroundColor: Colors.background
   },
   header: {
     fontSize: 22,

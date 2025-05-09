@@ -10,17 +10,13 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { useRouter } from "expo-router";
-import TradeFairScreen from "./informacje-tagowe-2";
+import TradeFairScreen from "../../informacje-tagowe-2";
+import { Colors } from "@/constants/Colors";
 
 export default function TradeInfoScreen() {
   const router = useRouter();
-  const goBack = () => {
-    if (router.canGoBack()) {
-      router.back();
-    } else {
-      router.navigate("/");
-    }
-  };
+  //TODO fix back method
+  const goBack = () => (router.canGoBack() ? router.navigate("/") : router.navigate("/"));
 
   const scheduleData = [
     {
@@ -190,7 +186,7 @@ export default function TradeInfoScreen() {
         </View>
       </View>
       <TradeFairScreen />
-      <Footer />
+      <Footer imageColor="light"/>
     </ScrollView>
   );
 }
@@ -198,7 +194,7 @@ export default function TradeInfoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2e2e38",
+    backgroundColor: Colors.background,
     paddingTop: 70,
     paddingHorizontal: 20,
   },

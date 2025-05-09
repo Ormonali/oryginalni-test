@@ -1,19 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, Pressable } from 'react-native';
 import { Footer } from '@/components/Footer';
-import ProgressBar from '@/components/ProgressBar';
-import { Subheader } from 'react-native-paper/lib/typescript/components/List/List';
-import IconButton from '@/components/IconButton';
-import RightBtnIcon from '@/components/icons/RightBtn';
-import BellIcon from '@/components/icons/Bell';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme.web';
-import { useRouter } from 'expo-router';
+import EventInfoCard from '@/components/home/EventInfoCard';
+import { usePlannedEvents } from '@/context/PlannedEventsContext';
 
 
 export default function PlannedEventsScreen() {
-  const router = useRouter();
+  const { plannedEvents } = usePlannedEvents();
 
   return (
     <View style={styles.container}>
@@ -29,20 +24,18 @@ export default function PlannedEventsScreen() {
           </View>
         </View>
         <Spacer height={20}/>
-        {/* Event Info */}
-        <View style={styles.card}>
-          <View style={styles.row}>
-            <Image style={styles.rightSpace}
-              source={require('@/assets/images/expo.png')} // Adjust the path based on your setup
-            />
-            <View style={styles.container}>
-              <Text style={styles.label}>Twoje wydarzenie:</Text>
-              <Text style={styles.dates}>11.03.2026–15.03.2026</Text>
-              <Text style={styles.title}>International Trade Fair for Building Technologies and Materials</Text>
-              <Text style={styles.link}>zmień</Text>
-            </View>
-          </View>
-        </View>
+        <Text style={styles.header}>Twoje zaplanowane wydarzenia:</Text>
+        <Spacer height={10}/>
+        {plannedEvents.map((event) => (
+          <EventInfoCard
+            key={event.id}
+            imageSource={event.imageSource}
+            dates={event.dates}
+            title={event.title}
+            buttonText="wybierz"
+            onChangePress={() => console.log(`Pressed event: ${event.id}`)}
+          />
+        ))}
         <Footer />
       </ScrollView>
     </View>
@@ -51,6 +44,7 @@ export default function PlannedEventsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.background
   },
   row: {
     flexDirection: 'row',

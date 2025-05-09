@@ -7,43 +7,53 @@ import {
   Image,
   ScrollView,
   Pressable,
+  Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import IconButton from "@/components/IconButton";
 import DownloadIcon from "@/components/icons/Download";
+import * as FileSystem from "expo-file-system";
+import FileDownloader from "@/components/FileDownloader";
 
 const materials = {
   logotypy: [
     {
       name: "Logotyp wydarzenia",
       image: require("@/assets/images/expo.png"),
+      url: "https://file-examples.com/storage/fe5f3edaa0f5ee2f9b4396e/2017/10/file_example_PNG_500kB.png",
     },
     {
       name: "Logotyp Ptak Expo",
       image: require("@/assets/images/logo-dark.png"),
+      url: "https://file-examples.com/storage/fe5f3edaa0f5ee2f9b4396e/2017/10/file_example_PNG_500kB.png",
     },
   ],
   banery: [
     {
       name: "800x800",
       image: require("@/assets/images/expo.png"),
+      url: "https://file-examples.com/storage/fe5f3edaa0f5ee2f9b4396e/2017/10/file_example_PNG_500kB.png",
     },
     {
       name: "1200x200",
       image: require("@/assets/images/expo.png"),
+      url: "https://file-examples.com/storage/fe5f3edaa0f5ee2f9b4396e/2017/10/file_example_PNG_500kB.png",
     },
   ],
 };
+const testFile = "https://file-examples.com/storage/fe5f3edaa0f5ee2f9b4396e/2017/10/file_example_PNG_500kB.png"
 
 type MaterialItem = {
   name: string;
   image: any;
+  url: string;
 };
 
 export default function MaterialMarketingScreen() {
   const router = useRouter();
-  const goBack = () => (router.canGoBack() ? router.back() : router.navigate("/"));
+  //TODO fix back method
+  const goBack = () => (router.canGoBack() ? router.navigate("/") : router.navigate("/"));
 
   const renderSection = (title: string, items: MaterialItem[]) => (
     <View style={styles.section}>
@@ -55,7 +65,7 @@ export default function MaterialMarketingScreen() {
             <Image source={item.image} style={styles.itemImage} />
             <View style={[styles.itemContent, isLast && styles.lastItem]}>
               <Text style={styles.itemText}>{item.name}</Text>
-              <IconButton onPress={() => {}} Icon={DownloadIcon} />
+              <FileDownloader url={item.url} filename={`${item.name}.pdf`} />
             </View>
           </View>
         );
@@ -70,18 +80,18 @@ export default function MaterialMarketingScreen() {
           <Text style={styles.backArrow}>‹</Text>
         </Pressable>
         <Image
-            source={{ uri: "https://via.placeholder.com/40" }}
-            style={[
-              styles.headerIcon,
-              {
-                width: 42,
-                height: 42,
-                borderRadius: 22,
-                borderWidth: 1,
-                borderColor: "#3d3d3d",
-              },
-            ]}
-          />
+          source={{ uri: "https://via.placeholder.com/40" }}
+          style={[
+            styles.headerIcon,
+            {
+              width: 42,
+              height: 42,
+              borderRadius: 22,
+              borderWidth: 1,
+              borderColor: "#3d3d3d",
+            },
+          ]}
+        />
         <Text style={styles.headerText}>Materiały Marketingowe</Text>
       </View>
 
@@ -90,11 +100,14 @@ export default function MaterialMarketingScreen() {
         {renderSection("Banery z Twoim logo", materials.banery)}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Pozostałe dokumenty</Text>
-            <View style={[styles.itemContent, styles.lastItem]}>
-              <Image source={require("@/assets/images/file.png")} style={styles.itemIcon} />
-              <Text style={styles.itemText}>Notka prasowa o targach</Text>
-              <IconButton onPress={() => {}} Icon={DownloadIcon} />
-            </View>
+          <View style={[styles.itemContent, styles.lastItem]}>
+            <Image
+              source={require("@/assets/images/file.png")}
+              style={styles.itemIcon}
+            />
+            <Text style={styles.itemText}>Notka prasowa o targach</Text>
+            <FileDownloader url={testFile} filename="NotkaPrasowa.pdf" />
+          </View>
         </View>
       </View>
 
@@ -190,7 +203,7 @@ const styles = StyleSheet.create({
   itemText: {
     flex: 1,
     fontSize: 14,
-    fontWeight: 100,
-    paddingLeft: 10
+    fontWeight: "100",
+    paddingLeft: 10,
   },
 });
