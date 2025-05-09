@@ -4,29 +4,12 @@ import { Footer } from '@/components/Footer';
 import Spacer from '@/components/Spacer';
 import { Colors } from '@/constants/Colors';
 import EventInfoCard from '@/components/home/EventInfoCard';
-const mockEvents = [
-  {
-    id: '1',
-    imageSource: require('@/assets/images/expo.png'),
-    dates: '11.03.2026–15.03.2026',
-    title: 'International Trade Fair for Building Technologies and Materials',
-  },
-  {
-    id: '2',
-    imageSource: require('@/assets/images/expo.png'),
-    dates: '20.04.2026–22.04.2026',
-    title: 'International Trade Fair for Building Technologies and Materials',
-  },
-  {
-    id: '3',
-    imageSource: require('@/assets/images/expo.png'),
-    dates: '01.06.2026–03.06.2026',
-    title: 'International Trade Fair for Building Technologies and Materials',
-  },
-];
+import { usePlannedEvents } from '@/context/PlannedEventsContext';
 
 
 export default function PlannedEventsScreen() {
+  const { plannedEvents } = usePlannedEvents();
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -43,7 +26,7 @@ export default function PlannedEventsScreen() {
         <Spacer height={20}/>
         <Text style={styles.header}>Twoje zaplanowane wydarzenia:</Text>
         <Spacer height={10}/>
-        {mockEvents.map((event) => (
+        {plannedEvents.map((event) => (
           <EventInfoCard
             key={event.id}
             imageSource={event.imageSource}

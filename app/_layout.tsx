@@ -8,6 +8,7 @@ import 'react-native-reanimated';
 import { PaperProvider } from 'react-native-paper';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { PlannedEventsProvider } from '@/context/PlannedEventsContext';
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -32,11 +33,13 @@ export default function RootLayout() {
   return (
     <PaperProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
+        <PlannedEventsProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+          <StatusBar style="auto" />
+        </PlannedEventsProvider>
       </ThemeProvider>
     </PaperProvider>
   );

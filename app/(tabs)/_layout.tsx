@@ -9,7 +9,7 @@ export default function Layout() {
     >
       <Tabs.Screen
         name="index"
-        options={{ title: "Home", headerShown: false}}
+        options={{ title: "Home", headerShown: false }}
       />
       <Tabs.Screen
         name="aktualnosci"
