@@ -44,9 +44,10 @@ const EventItem: React.FC<EventItemProps> = ({
     {expanded && details && (
       <View style={styles.details}>
         <Text style={styles.detailsText}>{details}</Text>
-        <TouchableOpacity>
-          <Text style={styles.moreLink}>więcej ↗</Text>
-        </TouchableOpacity>
+        <Pressable style={styles.moreLinkWrap}>
+          <Text style={styles.moreLink}>więcej</Text>
+          <Text style={styles.moreLinkArrow}>↗</Text>
+        </Pressable>
       </View>
     )}
   </View>
@@ -268,6 +269,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   details: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 8,
   },
   detailsText: {
@@ -275,8 +279,19 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginBottom: 4,
   },
+  moreLinkWrap: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 6,
+  },
   moreLink: {
-    color: "#68fccc",
+    color: "#6effd7",
+    fontSize: 13,
+    marginRight: 6,
+    textDecorationLine: "underline",
+  },
+  moreLinkArrow: {
+    color: "white",
     fontSize: 13,
   },
   hallGrid: {

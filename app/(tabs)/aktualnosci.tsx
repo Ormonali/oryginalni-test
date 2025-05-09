@@ -25,7 +25,7 @@ const notifications: SectionData[] = [
         id: "1",
         title: "Zmiana statusu zaproszenia dla gości",
         message:
-          "Katarzyna Sułkowska potwierdziła Twoje zaproszenie jako „Gość VIP”",
+          "Katarzyna Sułkowska potwierdziła Twoje zaproszenie jako „Gość VIP Katarzyna Sułkowska potwierdziła Twoje zaproszenie jako „Gość VIP”",
         time: "7 godz. temu",
         icon: "email-check-outline",
       },
@@ -71,7 +71,6 @@ export default function AktualnosciScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Text style={styles.header}>Aktualności</Text>
-
         {notifications.map((section) => (
           <View key={section.title} style={{ width: "100%" }}>
             <Text style={styles.sectionHeader}>{section.title}</Text>
@@ -92,7 +91,9 @@ export default function AktualnosciScreen() {
                   </View>
                   <View style={styles.textWrap}>
                     <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.message}>{item.message}</Text>
+                    <Text style={styles.message} numberOfLines={2}>
+                      {item.message}
+                    </Text>
                     <Text style={styles.time}>{item.time}</Text>
                   </View>
                 </View>
